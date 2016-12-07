@@ -43,6 +43,7 @@ GUI=$(zenity --list --checklist \
 	FALSE "Install TLP" "Install TLP to save battery and prevent overheating." \
 	FALSE "Install Redshift" "Use night shift to save your eyes." \
 	FALSE "Install Disk Utility" "Gnome Disk Utility is a tool to manage disk drives and media." \
+	FALSE "Install Guake" "Guake Terminal is a terminal." \
 	FALSE "Fix Broken Packages" "Fixes the broken packages." \
 	FALSE "Clean-Up Junk" "Removes unnecessary packages and the local repository of retrieved package files." \
 	FALSE "Enable Plank magnifying effect" "Enabling OSX-style zoom in Plank" \
@@ -386,6 +387,16 @@ then
 	echo "Fixing the broken packages..."
 	echo ""
 	sudo apt -y -f install
+fi
+
+# Fix Broken Packages Action
+if [[ $GUI == *"Install Guake"* ]]
+then
+	clear
+	echo "Install Guake..."
+	echo ""
+	sudo apt -y update
+	sudo apt -y install guake
 fi
 
 # Clean-Up Junk Action
