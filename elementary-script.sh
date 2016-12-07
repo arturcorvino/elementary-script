@@ -34,6 +34,7 @@ GUI=$(zenity --list --checklist \
 	FALSE "Install Clementine Music Player" "Installs Clementine. One of the Best Music Players and library organizer on Linux." \
 	FALSE "Install Gimp" "GIMP is an advanced picture editor. You can use it to edit, enhance, and retouch photos and scans, create drawings, and make your own images." \
 	FALSE "Install Deluge" "Deluge is a lightweight, Free Software, cross-platform BitTorrent client." \
+	FALSE "Install qBittorrent" "qBittorrent is a Free Software, on all major platforms (Linux, Mac OS X, Windows, OS/2, FreeBSD)." \
 	FALSE "Install Transmission" "Installs the Transmission BitTorrent client." \
 	FALSE "Install Atom" "Installs Atom. A hackable text editor for the 21st Century." \
 	FALSE "Install Sublime Text 3" "Installs Sublime Text 3. A sophisticated text editor for code, markup and prose." \
@@ -273,6 +274,18 @@ then
 	echo "Installing Deluge..."
 	echo ""
 	sudo apt -y install deluge
+fi
+
+
+# Install qBittorrent
+if [[ $GUI == *"Install qBittorrent"* ]]
+then
+	clear
+	echo "Installing qBittorrent..."
+	echo ""
+	sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
+	sudo apt -y update
+	sudo apt -y install qbittorrent
 fi
 
 # Install Transmission Action
